@@ -1,9 +1,11 @@
 import Body from "@/components/character/Body";
 import Face from "@/components/character/Face";
+import TaskList from "@/components/TaskList";
 import type { Task } from "@/types/task";
 import { completeTask, createTask } from "@/utils/task";
+import { Link } from "expo-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Animated, Button, FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Animated, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
   // Face bounce (always)
@@ -61,7 +63,7 @@ export default function HomeScreen() {
       </View>
       
       {/* Create task */}
-      <View style={styles.row}>
+      {/* <View style={styles.row}>
         <TextInput
           value={title}
           onChangeText={setTitle}
@@ -71,10 +73,13 @@ export default function HomeScreen() {
           onSubmitEditing={addTask}
         />
         <Button title="Add" onPress={addTask} />
-      </View>
-
+      </View> */}
+      <Link href="/tasks">Go to Tasks</Link>
+    <View style={{ flex: 1, padding: 16 }}>
+      <TaskList />
+    </View>
       {/* List tasks */}
-      <FlatList
+      {/* <FlatList
         data={tasks}
         keyExtractor={(t) => t.id}
         contentContainerStyle={{ paddingBottom: 24 }}
@@ -95,7 +100,7 @@ export default function HomeScreen() {
           </View>
         )}
         ListEmptyComponent={<Text style={styles.empty}>No tasks yet. Add one!</Text>}
-      />
+      /> */}
     </View>
   );
 }
