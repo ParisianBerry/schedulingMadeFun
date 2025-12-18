@@ -56,7 +56,7 @@ export default function HomeScreen() {
         </Animated.View>
 
         <View>
-          <Body isHappy={givenTask?.status=="done"} />
+          <Body task={givenTask} size={240} />
         </View>
       </View>
       
